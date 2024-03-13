@@ -1,0 +1,265 @@
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/*
+*
+* Catppuccin Mocha palette
+* Maintainer: rubyowo
+*
+*/
+@define-color main-fg #cdd6f4;
+
+@define-color wb-act-bg #a6adc8;
+
+@define-color wb-hvr-bg #f5c2e7;
+@define-color wb-hvr-fg #313244;
+
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+@define-color text #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color subtext1 #bac2de;
+
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color overlay2 #9399b2;
+
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color sapphire #74c7ec;
+@define-color sky #89dceb;
+@define-color teal #94e2d5;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color peach #fab387;
+@define-color maroon #eba0ac;
+@define-color red #f38ba8;
+@define-color mauve #cba6f7;
+@define-color pink #f5c2e7;
+@define-color flamingo #f2cdcd;
+@define-color rosewater #f5e0dc;
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+  background: @base;
+  color: @text;
+  font-family: FiraCode Nerd Font;
+  font-size: 14px;
+  border-bottom: 1px solid @surface0;
+  border-radius: 10px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#custom-launcher {
+  font-size: 25px;
+  color: @blue;
+  margin-right: 11px;
+}
+
+#custom-pacman,
+#custom-gpuinfo {
+  color: #89b4fa;
+}
+
+#battery {
+  color: #a6e3a1;
+}
+
+#battery.charging {
+  color: #a6dddd;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.warning {
+  color: @peach;
+  font-weight: bold;
+}
+
+#battery.critical {
+  color: @maroon;
+  font-weight: bold;
+}
+
+#clock {
+  color: #f9e2af;
+  font-weight: bold;
+}
+
+#cpu {
+  color: #ededed;
+}
+
+#cpu.warning {
+  color: @peach;
+}
+
+#cpu.critical {
+  color: @maroon;
+  font-weight: bold;
+}
+
+#memory {
+  color: #efaded;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#memory.warning {
+  color: @peach;
+}
+
+#memory.critical {
+  color: @maroon;
+  font-weight: bold;
+}
+
+#network,
+#bluetooth,
+#language {
+  font-size: 14px;
+}
+
+#bluetooth {
+  color: #89b4fa;
+}
+
+#idle_inhibitor {
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+#backlight {
+  color: #00ffea;
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+#pulseaudio {
+  color: #89b4cc;
+}
+
+#network {
+  color: #f9e2af;
+}
+
+#network.disconnected {
+  color: @peach;
+}
+
+#custom-separator {
+  padding-left: 2px;
+  padding-right: 2px;
+  color: @sapphire;
+  background: transparent;
+}
+
+#tray {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#idle_inhibitor {
+  padding-top: 2px;
+}
+
+window#waybar {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#window {
+  color: #cdd6fd;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#workspaces button:hover {
+  background-color: #f5c2e7;
+  font-size: 150%;
+  color: #313244;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button {
+  border-top: 2px solid transparent;
+  background-color: transparent;
+  color: @text;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.active {
+  background-color: #f5c2e7;
+  font-size: 150%;
+  color: #000000;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.focused {
+  color: @mantle;
+  background-color: @yellow;
+}
+
+#workspaces button.urgent {
+  border-color: @maroon;
+  color: @maroon;
+}
+
+#taskbar button {
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  color: @wb-color;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#taskbar button.active {
+  background: @wb-act-bg;
+  color: @wb-act-color;
+  margin-left: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#taskbar button:hover {
+  background: @wb-hvr-bg;
+  color: @wb-hvr-color;
+  padding-left: 3px;
+  padding-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
